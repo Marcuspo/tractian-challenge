@@ -1,6 +1,6 @@
 import { Card, Divider } from "antd"
 
-import { FullContainer } from "./styles.js"
+import { FullContainer } from "./styles"
 
 function Index() {
   return (
@@ -13,7 +13,9 @@ function Index() {
             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
           />
         }
-      ></Card>
+      >
+        Teste
+      </Card>
       <Divider />
     </FullContainer>
   )
