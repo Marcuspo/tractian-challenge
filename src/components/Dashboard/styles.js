@@ -17,7 +17,7 @@ export const FullContainer = styled.div`
 `
 export const StyleCard = styled.div`
   .cards {
-    margin-bottom: 5px;
+    margin: 5px;
   }
 `
 

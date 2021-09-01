@@ -83,8 +83,8 @@ function Index() {
           <>
             {data.map((data) => (
               <div className="site-card-wrapper">
-                <Row gutter={4}>
-                  <Col span={10}>
+                <Row gutter={[16, 24]}>
+                  <Col span={20}>
                     <StyleCard key={data.id}>
                       <strong>{data.name}</strong>
                       {data.status === "inAlert" ? (
@@ -116,7 +116,13 @@ function Index() {
                         <Card
                           bordered={false}
                           style={{ width: 300 }}
-                          cover={<img alt="card" src={data.image} />}
+                          cover={
+                            <img
+                              alt="card"
+                              style={{ borderRadius: 30 }}
+                              src={data.image}
+                            />
+                          }
                         >
                           <DivChart>
                             <Chart data={data.healthscore} className="chart" />
