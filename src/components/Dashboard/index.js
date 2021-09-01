@@ -1,4 +1,4 @@
-import { Card, Divider, Spin, Tag, Row, Col } from "antd"
+import { Card, Divider, Spin, Tag, Row, Col, Select } from "antd"
 
 import {
   FullContainer,
@@ -19,27 +19,63 @@ import { useEffect, useState } from "react"
 
 import Chart from "./Chart/Chart"
 
+const { Option } = Select
+
 function Index() {
   const [data, setData] = useState([])
   const [units, setUnits] = useState([])
   const [loading, setLoading] = useState(true)
+  const [value, setValue] = useState(null)
 
   useEffect(() => {
     getData()
-  }, [])
+    getUnits()
+  }, [value])
 
   async function getData() {
-    const response = await api.get("/assets")
+    const response = await api.get(`/assets?unitId=${value}`)
+
     const docs = response.data
 
+    if (value === "3") {
+      getAll()
+    }
     setData(docs)
     setLoading(false)
-    console.log(data)
+  }
+
+  async function getAll() {
+    const responseAll = await api.get("/assets")
+    const docs = responseAll.data
+    setData(docs)
+  }
+
+  async function getUnits() {
+    const response = await api.get("/units")
+    const docs = response.data
+
+    setUnits(docs)
+    console.log(docs)
+  }
+
+  function handleChange(value) {
+    console.log(`selected ${value}`)
+    setValue(value)
   }
 
   return (
     <>
-      <FirstContainer>Selecionar empresa:</FirstContainer>
+      <FirstContainer>
+        Selecionar empresa:{" "}
+        <Select style={{ width: 120, marginLeft: 15 }} onChange={handleChange}>
+          {units.map((units) => (
+            <>
+              <Option value={units.id}>{units.name}</Option>
+            </>
+          ))}
+          <Option value="3">Todas</Option>
+        </Select>
+      </FirstContainer>
       <FullContainer>
         {loading ? (
           <Spin />
