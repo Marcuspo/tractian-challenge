@@ -67,7 +67,7 @@ function Index() {
     <>
       <FirstContainer>
         Selecionar empresa:{" "}
-        <Select style={{ width: 120, marginLeft: 15 }} onChange={handleChange}>
+        <Select style={{ width: 300, marginLeft: 15 }} onChange={handleChange}>
           {units.map((units) => (
             <>
               <Option value={units.id}>{units.name}</Option>
