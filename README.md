@@ -1,10 +1,10 @@
 # Tractian Challenge
 
  - Passos para executar o projeto:
-  1: Clone o projeto com o comando: `git clone https://github.com/Marcuspo/tractian-challenge`
-  2: Abra a pasta do projeto
-  3: Rode o comando `yarn start`
-  4: O projeto irá abrir no navegador
+  - Clone o projeto com o comando: `git clone https://github.com/Marcuspo/tractian-challenge`
+  - Abra a pasta do projeto
+  - Rode o comando `yarn start`
+  - O projeto irá abrir no navegador
 
 ## Projeto está online na plataforma VERCEL
 
